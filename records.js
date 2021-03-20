@@ -66,16 +66,16 @@ var records = {
 
   6: {
     vals: [
-      [['activate','water','reminder'],['activate','water','program'],['start','water','program'],['start','water','reminder']],
+      [['activate','water','reminder'],['activate','water','program'],['start','water','program'],['start','water','reminder'],['setup','water','reminder'],['setup','water','program'],['set','up','water','reminder'],['set','up','water','program']],
       
     ],
 
-    toBeSpeaked: "Setting up the drink water reminder with and interval of 15 minutes.",
+    toBeSpeaked: "Setting up the drink water reminder with and interval of 15 minutes. Do not refresh or close this tab or you'll deactivate the Drink Water program.",
 
     action: function(){
       intervalWaterDrink = setInterval(function(){
         speakNow("Hey Mr. Adam, time to drink water now. Go and drink.");
-      },8000);
+      },15*60000);
     }
   },
 
@@ -166,6 +166,67 @@ var records = {
     action: function(){
       window.open('https://web.whatsapp.com/');
     }
+  },
+
+  14:{
+    vals: [
+      [['show','youtube','studio'],['open','youtube','studio']],
+      
+    ],
+
+    toBeSpeaked: 'Opening YouTube Studio',
+
+    action: function(){
+      window.open('https://studio.youtube.com/');
+    }
+  },
+
+  15:{
+    vals: [
+      [['show','youtube'],['open','youtube']],
+      
+    ],
+
+    toBeSpeaked: 'Opening YouTube',
+
+    action: function(){
+      window.open('https://www.youtube.com/');
+    }
+  },
+
+  16:{
+    vals: [
+      [['open','type racer'],['open','typing racer']],
+      
+    ],
+
+    toBeSpeaked: 'Opening Type Racer',
+
+    action: function(){
+      window.open('https://play.typeracer.com/');
+    }
+  },
+
+  17:{
+    vals: [
+      [['take','typing test'],['open','typing test'],['open','typing master']],
+      
+    ],
+
+    toBeSpeaked: 'Opening Typing test.',
+
+    action: function(){
+      window.open('https://www.typingtest.com/');
+    }
+  },
+
+  18:{
+    vals: [
+      [],
+      'hello','hi'
+    ],
+
+    toBeSpeaked: 'Hello Mr. Adam.'
   },
 
 

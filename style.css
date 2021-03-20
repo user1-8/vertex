@@ -1,4 +1,5 @@
 *{margin:0;padding:0;box-sizing:border-box; font-family: 'Oswald', sans-serif;}
+html{ font-size: 20px; }
 body{
   background: #2c3e50;
 }
@@ -93,4 +94,17 @@ body{
   margin-top: 5px;
   font-size: 1rem;
   color: #7f8c8d;
+}
+
+
+
+
+
+@media(max-width:320px){
+  html{
+    font-size: 15px;
+  }
+  .pointer{
+    width: 60%;
+  }
 }
