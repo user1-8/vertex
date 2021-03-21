@@ -3,6 +3,13 @@ html{ font-size: 20px; }
 body{
   background: #2c3e50;
 }
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 .wrapper{
   display: flex;
   flex-direction: column;

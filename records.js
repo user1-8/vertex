@@ -2,6 +2,8 @@
 
 var bDaySong = new Audio('https://drive.google.com/uc?id=1IGmG2bb_B-_5hJpUFWDy-pgA0gtFK0tA');
 
+var dynamiteSong = new Audio('https://drive.google.com/uc?id=1pimXm8lSPc41yX9GVC_dgVmA3KYwoKJd');
+
 var intervalWaterDrink;
 
 var records = {
@@ -12,7 +14,7 @@ var records = {
       'Are you vertex','tell about yourself'
     ],
 
-    toBeSpeaked: "I am Vertex, an AI system made by Mr. Adam, and a small real life alternative of Iron man's jarvis. I assist Mr. Adam in his daily work, In other words, you can call me his P.A. or Personal Assistant."
+    toBeSpeaked: "I am Vertex, an kind of AI system made by Mr. Adam, and a small real life alternative of Iron man's jarvis. I assist Mr. Adam in his daily work, In other words, you can call me his P.A. or Personal Assistant."
   },
 
   2: {
@@ -33,7 +35,6 @@ var records = {
     toBeSpeaked: "Playing the birthday song",
 
     action: function(){
-      console.log(bDaySong);
       bDaySong.play();
     },
   },
@@ -223,11 +224,51 @@ var records = {
   18:{
     vals: [
       [],
-      'hello','hi'
+      'hello','hi '
     ],
 
     toBeSpeaked: 'Hello Mr. Adam.'
   },
+
+  19: {
+    vals: [
+      [['play','dynamite'],['sing','dynamite']],
+      
+    ],
+
+    toBeSpeaked: "Playing Dynamite",
+
+    action: function(){
+      dynamiteSong.play();
+    },
+  },
+
+  20: {
+    vals: [
+      [['stop','dynamite'],['pause','dynamite']],
+      
+    ],
+
+    toBeSpeaked: "Pausing Dynamite",
+
+    action: function(){
+      dynamiteSong.pause();
+    },
+  },
+
+  21: {
+    vals: [
+      [['open','drive'],['show','drive']],
+      
+    ],
+
+    toBeSpeaked: "Opening Google Drive",
+
+    action: function(){
+      window.open('https://drive.google.com/');
+    },
+  },
+  
 
 
 };
