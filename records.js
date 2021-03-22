@@ -6,6 +6,8 @@ var dynamiteSong = new Audio('https://drive.google.com/uc?id=1pimXm8lSPc41yX9GVC
 
 var intervalWaterDrink;
 
+var openSites = [];
+
 var records = {
 
   1: {
@@ -152,7 +154,7 @@ var records = {
     toBeSpeaked: 'Showing your google keep',
 
     action: function(){
-      window.open('http://keep.google.com/');
+      openSites[openSites.length] = window.open('http://keep.google.com/');
     }
   },
 
@@ -165,7 +167,7 @@ var records = {
     toBeSpeaked: 'Opening Whatsapp',
 
     action: function(){
-      window.open('https://web.whatsapp.com/');
+      openSites[openSites.length] = window.open('https://web.whatsapp.com/');
     }
   },
 
@@ -178,7 +180,7 @@ var records = {
     toBeSpeaked: 'Opening YouTube Studio',
 
     action: function(){
-      window.open('https://studio.youtube.com/');
+      openSites[openSites.length] = window.open('https://studio.youtube.com/');
     }
   },
 
@@ -191,7 +193,7 @@ var records = {
     toBeSpeaked: 'Opening YouTube',
 
     action: function(){
-      window.open('https://www.youtube.com/');
+      openSites[openSites.length] = window.open('https://www.youtube.com/');
     }
   },
 
@@ -204,7 +206,7 @@ var records = {
     toBeSpeaked: 'Opening Type Racer',
 
     action: function(){
-      window.open('https://play.typeracer.com/');
+      openSites[openSites.length] = window.open('https://play.typeracer.com/');
     }
   },
 
@@ -217,7 +219,7 @@ var records = {
     toBeSpeaked: 'Opening Typing test.',
 
     action: function(){
-      window.open('https://www.typingtest.com/');
+      openSites[openSites.length] = window.open('https://www.typingtest.com/');
     }
   },
 
@@ -265,7 +267,35 @@ var records = {
     toBeSpeaked: "Opening Google Drive",
 
     action: function(){
-      window.open('https://drive.google.com/');
+      openSites[openSites.length] = window.open('https://drive.google.com/');
+    },
+  },
+  
+  22: {
+    vals: [
+      [['open','github'],['show','github']],
+      
+    ],
+
+    toBeSpeaked: "Opening GitHub",
+
+    action: function(){
+      openSites[openSites.length] = window.open('https://github.com/');
+    },
+  },
+  
+  23: {
+    vals: [
+      [['close','tab'],['close','site']],
+      
+    ],
+
+    toBeSpeaked: "Closing tabs I opened",
+
+    action: function(){
+      for(var p=0; p<openSites.length; p++){
+        openSites[p].close();
+      }
     },
   },
   
