@@ -299,6 +299,19 @@ var records = {
     },
   },
   
+  24: {
+    vals: [
+      [['open','color'],['open','colour']],
+      
+    ],
+
+    toBeSpeaked: "Opening Flat U.I. Colors ",
+
+    action: function(){
+      openSites[openSites.length] = window.open('https://flatuicolors.com/');
+    },
+  },
+  
   
 
 
