@@ -273,6 +273,21 @@ var records = {
   
   22: {
     vals: [
+      [['close','tab'],['close','site']],
+      
+    ],
+    
+    toBeSpeaked: "Closing tabs I opened",
+    
+    action: function(){
+      for(var p=0; p<openSites.length; p++){
+        openSites[p].close();
+      }
+    },
+  },
+  
+  23: {
+    vals: [
       [['open','github'],['show','github']],
       
     ],
@@ -284,20 +299,6 @@ var records = {
     },
   },
   
-  23: {
-    vals: [
-      [['close','tab'],['close','site']],
-      
-    ],
-
-    toBeSpeaked: "Closing tabs I opened",
-
-    action: function(){
-      for(var p=0; p<openSites.length; p++){
-        openSites[p].close();
-      }
-    },
-  },
   
 
 
