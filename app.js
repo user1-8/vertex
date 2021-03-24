@@ -136,7 +136,11 @@ recognition.onresult = function(e){
           speakNow(records[h]['toBeSpeaked']);
           if(records[h]['action'] != undefined){
             speech.onend = function(){
-              records[h]['action']();
+              if(records[h]['action']() != "dictionary"){
+                records[h]['action']();
+              }else{
+                window.open("https://dictionary.cambridge.org/dictionary/english/" + transcriptText.replace('define ',''));
+              }
             }
           }
           break propertiesInRecords;

@@ -312,6 +312,46 @@ var records = {
     },
   },
   
+  25: {
+    vals: [
+      [],
+      'define'
+    ],
+
+    toBeSpeaked: "Showing word meaning",
+
+    action: function(){
+      return "dictionary";
+    },
+  },
+  
+  26: {
+    vals: [
+      [],
+      'good evening'
+    ],
+
+    toBeSpeaked: "Good Evening Sir",
+  },
+  
+  27: {
+    vals: [
+      [],
+      'good morning'
+    ],
+
+    toBeSpeaked: "Good Morning Sir",
+  },
+  
+  28: {
+    vals: [
+      [],
+      'good afternoon'
+    ],
+
+    toBeSpeaked: "Good Afternoon Sir",
+  },
+  
   
 
 
