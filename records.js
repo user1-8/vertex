@@ -16,7 +16,7 @@ var records = {
       'Are you vertex','tell about yourself'
     ],
 
-    toBeSpeaked: "I am Vertex, an kind of AI system made by Mr. Adam, and a small real life alternative of Iron man's jarvis. I assist Mr. Adam in his daily work, In other words, you can call me his P.A. or Personal Assistant."
+    toBeSpeaked: "I am Vertex, a kind of AI system made by Mr. Adam, and a small real life alternative of Iron man's jarvis. I assist Mr. Adam in his daily work, In other words, you can call me his P.A. or Personal Assistant."
   },
 
   2: {
