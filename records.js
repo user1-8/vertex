@@ -199,7 +199,7 @@ var records = {
 
   16:{
     vals: [
-      [['open','type racer'],['open','typing racer']],
+      [['open','type racer'],['open','typing racer'],['open','typeracer']],
       
     ],
 
