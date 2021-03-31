@@ -2272,5 +2272,11 @@ var jokes = [
     "type": "general",
     "setup": "My wife told me she needs more space, I said, no problem.",
     "punchline": "I actually locked her out of the house."
+  },
+  {
+    "id": 389,
+    "type": "general",
+    "setup": "What will you call a sleeping bull?",
+    "punchline": "A Bulldozer."
   }
 ]

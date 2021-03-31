@@ -8,6 +8,14 @@ const listened = document.querySelector('.listened');
 const confidence = document.querySelector('.confidence');
 let i=0;
 
+// below is to listen to user by clicking space-bar
+document.body.onkeyup = function(e){
+  if(e.keyCode == 32){
+    img.click();
+  }
+}
+
+
 // below function accesses the url variables
 let getUrlParams = (url) => {
   var params = {};
@@ -48,7 +56,7 @@ if(getUrlParams(window.location.href).mob == undefined){
 
 
 var speech = new SpeechSynthesisUtterance();
-speech.rate = .7;
+speech.rate = .8;
 speech.lang = 'en-US';
 speech.pitch = 1;
 speech.volume=1;

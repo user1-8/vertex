@@ -355,13 +355,64 @@ var records = {
   29: {
     vals: [
       [],
-      'how are you', ''
+      'how are you'
     ],
 
     toBeSpeaked: "I am doing good, By the way, Thanks for asking Sir",
+  },
+  
+  30: {
+    vals: [
+      [['what','is','date'],['what','is','day'],['tell','date'],['tell','day']],
+      
+    ],
+
+    // below toBeSpeaked is changed every 1 second
+    toBeSpeaked: '',
+  },
+  
+  31: {
+    vals: [
+      [['what','is','time'],['tell','time']],
+      
+    ],
+
+    // below toBeSpeaked is changed every 1 second
+    toBeSpeaked: '',
   },
   
   
 
 
 };
+
+
+
+
+// below function makes 1 to first, 2 to second, etc.
+function stringifyNumber(n) {
+  var special = ['zeroth','first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelvth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth'];
+  var deca = ['twent', 'thirt', 'fourt', 'fift', 'sixt', 'sevent', 'eight', 'ninet'];
+
+  if (n < 20) return special[n];
+  if (n%10 === 0) return deca[Math.floor(n/10)-2] + 'ieth';
+  return deca[Math.floor(n/10)-2] + 'y-' + special[n%10];
+}
+
+var monthName  = ["January", "February", "March", "April", "May", "June",
+"July", "August", "September", "October", "November", "December"];
+
+var dayName = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+var datee, time_12format;
+
+setInterval(function(){
+  datee = new Date();
+  if(datee.getHours() == 0) time_12format = 12+" "+datee.getMinutes()+" AM";
+  else if(datee.getHours() > 12) time_12format = (datee.getHours()-12)+" "+datee.getMinutes()+" PM";
+  else time_12format = datee.getHours()+" "+datee.getMinutes()+" AM";
+
+  records[30]['toBeSpeaked'] = 'Today is '+dayName[datee.getDay()]+', '+stringifyNumber(datee.getDate())+' of '+monthName[datee.getMonth()]+' '+datee.getFullYear()+' sir.';
+
+  records[31]['toBeSpeaked'] = 'It is '+time_12format+' now sir.';
+},1000);
