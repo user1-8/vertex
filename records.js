@@ -12,8 +12,8 @@ var records = {
 
   1: {
     vals: [
-      [['Who','you'],['who','vertex'],['introduce','yourself']],
-      'Are you vertex','tell about yourself'
+      [['Who','you'],['who','vertex'],['introduce','yourself'],['tell','about','yourself']],
+      'Are you vertex'
     ],
 
     toBeSpeaked: "I am Vertex, a kind of AI system made by Mr. Adam, and a small real life alternative of Iron man's jarvis. I assist Mr. Adam in his daily work, In other words, you can call me his P.A. or Personal Assistant."
@@ -119,16 +119,14 @@ var records = {
       'make me laugh',
     ],
 
-    // randNum: Math.random(),
-
-    toBeSpeaked: jokes[Math.floor((Math.random())*387)+1]["setup"],
+    toBeSpeaked: jokes[Math.floor((Math.random())*(jokes.length))+1]["setup"],
 
     action: function(){
-      var MyThis = this;
+      let MyThis = this;
       for(var q=0; q<jokes.length; q++){
         if(jokes[q]["setup"] == MyThis.toBeSpeaked){
           speakNow(jokes[q]["punchline"]);
-          MyThis.toBeSpeaked = jokes[Math.floor((Math.random())*387)+1]["setup"];
+          MyThis.toBeSpeaked = jokes[Math.floor((Math.random())*(jokes.length))+1]["setup"];
           break;
         }
         }
@@ -322,7 +320,7 @@ var records = {
 
     action: function(){
       return "dictionary";
-    },
+    }
   },
   
   26: {
@@ -381,10 +379,38 @@ var records = {
     toBeSpeaked: '',
   },
   
+  32: {
+    vals: [
+      [['daily','quote'],['tell','quote'],['daily','thought'],['tell','thought'],['daily','saying'],['tell','saying']],
+      
+    ],
+
+    toBeSpeaked: quotes[Math.floor((Math.random())*(quotes.length))+1]["text"],
+
+    action: function(){
+      let MyThis = this;
+      setTimeout(function(){
+        for(let o=0; o<quotes.length; o++){
+          if(quotes[o]['text'] == MyThis.toBeSpeaked){
+            if(quotes[o]['author'] != null){
+              speakNow('By '+ quotes[o]['author']);
+            }
+            MyThis.toBeSpeaked = quotes[Math.floor((Math.random())*(quotes.length))+1]["text"];
+            break;
+          }
+        }
+      },300);
+    }
+  },
+  
   
 
 
 };
+
+
+
+
 
 
 
