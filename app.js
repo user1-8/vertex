@@ -7,6 +7,11 @@ const img = document.querySelector('.pointer img');
 const listened = document.querySelector('.listened');
 const confidence = document.querySelector('.confidence');
 let i=0;
+var speech = new SpeechSynthesisUtterance();
+sspeech.voice=window.speechSynthesis.getVoices()[19];
+speech.rate = .8;
+speech.pitch = 1;
+speech.volume=1;
 
 // below is to listen to user by clicking space-bar
 document.body.onkeyup = function(e){
@@ -55,11 +60,7 @@ if(getUrlParams(window.location.href).mob == undefined){
 }
 
 
-var speech = new SpeechSynthesisUtterance();
-speech.rate = .8;
-speech.lang = 'en-US';
-speech.pitch = 1;
-speech.volume=1;
+
 
 setTimeout(function(){
   listened.setAttribute('style','letter-spacing:2px; padding-left:2px; opacity:1;');
