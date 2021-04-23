@@ -8,10 +8,23 @@ const listened = document.querySelector('.listened');
 const confidence = document.querySelector('.confidence');
 let i=0;
 var speech = new SpeechSynthesisUtterance();
-speech.voice=window.speechSynthesis.getVoices()[19];
 speech.rate = .8;
 speech.pitch = 1;
 speech.volume=1;
+speech.voice=this.speechSynthesis.getVoices()[19];
+setTimeout(function(){
+	speech.voice=this.speechSynthesis.getVoices()[19];
+},300);
+
+function speakNow(MyText){
+  if(MyText!='<pardon>'){
+    speech.text = MyText;
+  }
+  window.speechSynthesis.speak(speech);
+  console.log('[SPEAKING] '+speech.text);
+  
+  speech.onend = null;
+}
 
 // below is to listen to user by clicking space-bar
 document.body.onkeyup = function(e){
@@ -68,18 +81,6 @@ setTimeout(function(){
     listened.setAttribute('style',listened.getAttribute('style')+'transition: none;');
   },1200);
 },400);
-
-function speakNow(MyText){
-  if(MyText!='<pardon>'){
-    speech.text = MyText;
-  }
-  window.speechSynthesis.speak(speech);
-  console.log('[SPEAKING] '+speech.text);
-  
-  speech.onend = null;
-}
-
-
 
 
 
