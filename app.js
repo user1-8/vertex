@@ -11,9 +11,17 @@ var speech = new SpeechSynthesisUtterance();
 speech.rate = .8;
 speech.pitch = 1;
 speech.volume=1;
-speech.voice=this.speechSynthesis.getVoices()[19];
+for(let u=0;u<window.speechSynthesis.getVoices().length;u++){
+  if(window.speechSynthesis.getVoices()[u]['voiceURI'].search("David")!=-1){
+    speech.voice=window.speechSynthesis.getVoices()[u];
+  }
+}
 setTimeout(function(){
-	speech.voice=this.speechSynthesis.getVoices()[19];
+	for(let u=0;u<window.speechSynthesis.getVoices().length;u++){
+    if(window.speechSynthesis.getVoices()[u]['voiceURI'].search("David")!=-1){
+      speech.voice=window.speechSynthesis.getVoices()[u];
+    }
+  }
 },300);
 
 function speakNow(MyText){
