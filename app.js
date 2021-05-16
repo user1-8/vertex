@@ -17,7 +17,7 @@ for(let u=0;u<window.speechSynthesis.getVoices().length;u++){
   }
 }
 setTimeout(function(){
-	for(let u=0;u<window.speechSynthesis.getVoices().length;u++){
+  for(let u=0;u<window.speechSynthesis.getVoices().length;u++){
     if(window.speechSynthesis.getVoices()[u]['voiceURI'].search("David")!=-1){
       speech.voice=window.speechSynthesis.getVoices()[u];
     }
