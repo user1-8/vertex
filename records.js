@@ -1,5 +1,15 @@
 'use strict'
 
+function whereNameIs(nameParam){
+  for(let oi in records){
+    if(records[oi]['name'] != undefined){
+      if(records[oi]['name']==nameParam){
+        return oi;
+      }
+    }
+  }
+}
+
 var bDaySong = new Audio('https://drive.google.com/uc?id=1IGmG2bb_B-_5hJpUFWDy-pgA0gtFK0tA');
 
 var dynamiteSong = new Audio('https://drive.google.com/uc?id=1pimXm8lSPc41yX9GVC_dgVmA3KYwoKJd');
@@ -382,6 +392,8 @@ var records = {
   },
   
   31: {
+    name:'date',
+
     vals: [
       [['what','is','date'],['what','is','day'],['tell','date'],['tell','day']],
       
@@ -392,6 +404,8 @@ var records = {
   },
   
   32: {
+    name:'time',
+    
     vals: [
       [['what','is','time'],['tell','time']],
       
@@ -461,7 +475,7 @@ setInterval(function(){
   else if(datee.getHours() > 12) time_12format = (datee.getHours()-12)+" "+datee.getMinutes()+" PM";
   else time_12format = datee.getHours()+" "+datee.getMinutes()+" AM";
 
-  records[30]['toBeSpeaked'][0] = 'Today is '+dayName[datee.getDay()]+', '+stringifyNumber(datee.getDate())+' of '+monthName[datee.getMonth()]+' '+datee.getFullYear()+' sir.';
-
-  records[31]['toBeSpeaked'][0] = 'It is '+time_12format+' now sir.';
+  records[whereNameIs('date')]['toBeSpeaked'][0] = 'Today is '+dayName[datee.getDay()]+', '+stringifyNumber(datee.getDate())+' of '+monthName[datee.getMonth()]+' '+datee.getFullYear()+' sir.';
+  
+  records[whereNameIs('time')]['toBeSpeaked'][0] = 'It is '+time_12format+' now sir.';
 },1000);
