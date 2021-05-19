@@ -75,7 +75,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ["I can do anything you like, just ask."]
+    toBeSpeaked: ["I can do anything you like, just ask.","I can do many things for you my master"]
   },
 
   5: {
@@ -135,7 +135,7 @@ var records = {
   9: {
     vals: [
       [['bye'],['quit'],['exit']],
-      'meet you later','see you later'
+      'meet you later','meet you soon','see you soon','see you later'
     ],
 
     toBeSpeaked: ["See you later Mr. Adam. Good Bye."],
@@ -212,7 +212,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ['Opening Whatsapp'],
+    toBeSpeaked: ['Opening Whatsapp','sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://web.whatsapp.com/');
@@ -225,7 +225,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ['Opening YouTube Studio'],
+    toBeSpeaked: ['Opening YouTube Studio','sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://studio.youtube.com/');
@@ -238,7 +238,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ['Opening YouTube'],
+    toBeSpeaked: ['Opening YouTube','sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://www.youtube.com/');
@@ -251,7 +251,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ['Opening Type Racer'],
+    toBeSpeaked: ['Opening Type Racer','sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://play.typeracer.com/');
@@ -264,7 +264,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ['Opening Typing test.'],
+    toBeSpeaked: ['Opening Typing test.','sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://www.typingtest.com/');
@@ -312,7 +312,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ["Opening Google Drive"],
+    toBeSpeaked: ["Opening Google Drive",'sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://drive.google.com/');
@@ -340,7 +340,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ["Opening GitHub"],
+    toBeSpeaked: ["Opening GitHub",'sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://github.com/');
@@ -353,7 +353,7 @@ var records = {
       
     ],
 
-    toBeSpeaked: ["Opening Flat U.I. Colors "],
+    toBeSpeaked: ["Opening Flat U.I. Colors ",'sure sir'],
 
     action: function(){
       openSites[openSites.length] = window.open('https://flatuicolors.com/');

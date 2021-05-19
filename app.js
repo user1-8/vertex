@@ -120,21 +120,46 @@ recognition.onresult = function(e){
   setTimeout(function(){
     propertiesInRecords:
     for(var h in records){
-      for(var pi=0; pi<records[h]['vals'][0].length; pi++){
-        // console.log('pi');
-        var pgo=0;
 
-        for(var mi=0; mi<records[h]['vals'][0][pi].length; mi++){
-          // console.log('mi');
-          
-          if(transcriptText.search(new RegExp(records[h]['vals'][0][pi][mi], 'i')) != -1){
-            pgo++;
+      for(var j=0; j<records[h]['vals'].length; j++){
+
+        if(j==0){
+          for(var pi=0; pi<records[h]['vals'][0].length; pi++){
+            // console.log('pi');
+            var pgo=0;
+    
+            for(var mi=0; mi<records[h]['vals'][0][pi].length; mi++){
+              // console.log('mi');
+              
+              if(transcriptText.search(new RegExp(records[h]['vals'][0][pi][mi], 'i')) != -1){
+                pgo++;
+              }
+            }
+  
+            if(pgo == records[h]['vals'][0][pi].length){
+  
+              speakNow(records[h]['toBeSpeaked'][Math.floor(Math.random()*(records[h]['toBeSpeaked'].length))]);
+  
+              if(records[h]['action'] != undefined){
+                speech.onend = function(){
+                  if(records[h]['needTranscript'] != undefined){
+                    if(records[h]['needTranscript'] == true){
+                      records[h]['action'](transcriptText);
+                    }
+                  }else{
+                    records[h]['action']();
+                  }
+                }
+              }
+              
+              break propertiesInRecords;
+            }
+            
           }
-
-          if(pgo == records[h]['vals'][0][pi].length){
-
+        }else{
+          
+          if(transcriptText.search(new RegExp(records[h]['vals'][j], 'i')) != -1){
             speakNow(records[h]['toBeSpeaked'][Math.floor(Math.random()*(records[h]['toBeSpeaked'].length))]);
-
             if(records[h]['action'] != undefined){
               speech.onend = function(){
                 if(records[h]['needTranscript'] != undefined){
@@ -148,28 +173,6 @@ recognition.onresult = function(e){
             }
             break propertiesInRecords;
           }
-
-
-        }
-        
-      }
-      // records[h]['vals'][0]
-
-      for(var j=1; j<records[h]['vals'].length; j++){
-        if(transcriptText.search(new RegExp(records[h]['vals'][j], 'i')) != -1){
-          speakNow(records[h]['toBeSpeaked']);
-          if(records[h]['action'] != undefined){
-            speech.onend = function(){
-              if(records[h]['needTranscript'] != undefined){
-                if(records[h]['needTranscript'] == true){
-                  records[h]['action'](transcriptText);
-                }
-              }else{
-                records[h]['action']();
-              }
-            }
-          }
-          break propertiesInRecords;
         }
       }
     }
