@@ -137,8 +137,8 @@ recognition.onresult = function(e){
 
             if(records[h]['action'] != undefined){
               speech.onend = function(){
-                if(records[h]['name'] != undefined){
-                  if(records[h]['name'] == 'search_On_Internet' || records[h]['name'] == 'dictionary'){
+                if(records[h]['needTranscript'] != undefined){
+                  if(records[h]['needTranscript'] == true){
                     records[h]['action'](transcriptText);
                   }
                 }else{
@@ -160,8 +160,8 @@ recognition.onresult = function(e){
           speakNow(records[h]['toBeSpeaked']);
           if(records[h]['action'] != undefined){
             speech.onend = function(){
-              if(records[h]['name'] != undefined){
-                if(records[h]['name'] == 'search_On_Internet' || records[h]['name'] == 'dictionary'){
+              if(records[h]['needTranscript'] != undefined){
+                if(records[h]['needTranscript'] == true){
                   records[h]['action'](transcriptText);
                 }
               }else{
