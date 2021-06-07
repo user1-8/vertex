@@ -44,15 +44,15 @@ var records = {
     needTranscript: true,
 
     vals: [
-      [['search','for']],
+      [['search','for'],['search','on google'],['search','on internet']],
       
     ],
 
     toBeSpeaked: ["Sure sir",'ok sir','sure Mr. Adam'],
 
-    action: function(transcript){
+    action: function(){
       
-      let searchQuery = transcript.replace(/please search the internet for/i,'').replace(/search the internet for/i,'').replace(/please search google for/i,'').replace(/search google for/i,'').replace(/please search internet for/i,'').replace(/search internet for/i,'').replace(/please search for/i,'').replace(/search for/i,'').replace(/search/i,'').replace(/for/i,'');
+      let searchQuery = (this.transcript).replace(/please search the internet for/i,'').replace(/search the internet for/i,'').replace(/please search google for/i,'').replace(/search google for/i,'').replace(/please search internet for/i,'').replace(/search internet for/i,'').replace(/please search for/i,'').replace(/search for/i,'').replace(/search/i,'').replace(/for/i,'').replace(/on google/i,'').replace(/on internet/i,'');
 
       if(searchQuery.replace(/ /g,"") != ""){
         openSites[openSites.length] = window.open("https://www.google.com/search?q=" + searchQuery);
@@ -70,8 +70,8 @@ var records = {
 
     toBeSpeaked: [''],
 
-    action: function(transcript){
-      speakNow(transcript.replace('say','').replace('to',''));
+    action: function(){
+      speakNow((this.transcript).replace(/to my/i,"to my master's").replace(/say/i,'').replace(/to/i,''));
     }
   },
 
@@ -385,8 +385,8 @@ var records = {
 
     toBeSpeaked: ["Showing word meaning"],
 
-    action: function(transcript){
-      openSites[openSites.length] = window.open("https://dictionary.cambridge.org/dictionary/english/" + transcript.replace('define ',''));
+    action: function(){
+      openSites[openSites.length] = window.open("https://dictionary.cambridge.org/dictionary/english/" + (this.transcript).replace('define ',''));
     }
   },
   
