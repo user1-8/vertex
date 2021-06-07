@@ -61,6 +61,21 @@ var records = {
   },
 
   3: {
+    needTranscript: true,
+
+    vals: [
+      [['say','to']],
+      
+    ],
+
+    toBeSpeaked: [''],
+
+    action: function(transcript){
+      speakNow(transcript.replace('say','').replace('to',''));
+    }
+  },
+
+  4: {
     vals: [
       [['Who','you'],['who','vertex'],['introduce','yourself'],['tell','about','yourself']],
       'Are you vertex'
@@ -69,7 +84,7 @@ var records = {
     toBeSpeaked: ["I am Vertex, a kind of AI system made by Mr. Adam, and a small real life alternative of Iron man's jarvis. I assist Mr. Adam in his daily work, In other words, you can call me his P.A. or Personal Assistant."]
   },
 
-  4: {
+  5: {
     vals: [
       [['what','can','you','do'],['what','can','you','perform'],['tell','your','abilites']]
       
@@ -78,7 +93,7 @@ var records = {
     toBeSpeaked: ["I can do anything you like, just ask.","I can do many things for you my master"]
   },
 
-  5: {
+  6: {
     vals: [
       [['play','Birthday'],['sing','birthday']],
       
@@ -91,7 +106,7 @@ var records = {
     },
   },
 
-  6: {
+  7: {
     vals: [
       [['stop','Birthday'],['pause','birthday']],
       
@@ -104,7 +119,7 @@ var records = {
     },
   },
   
-  7:{
+  8:{
     vals: [
       [['stop','water','reminder'],['deactivate','water','reminder'],['stop','water','program'],['deactivate','water','program']],
       
@@ -117,7 +132,7 @@ var records = {
     }
   },
 
-  8: {
+  9: {
     vals: [
       [['activate','water','reminder'],['activate','water','program'],['start','water','program'],['start','water','reminder'],['setup','water','reminder'],['setup','water','program'],['set','up','water','reminder'],['set','up','water','program']],
       
@@ -132,7 +147,7 @@ var records = {
     }
   },
 
-  9: {
+  10: {
     vals: [
       [['bye'],['quit'],['exit']],
       'meet you later','meet you soon','see you soon','see you later'
@@ -145,7 +160,7 @@ var records = {
     }
   },
 
-  10:{
+  11:{
     vals: [
       [['say','again'],['speak','again'],['repeat','again']],
       'pardon','please repeat'
@@ -154,7 +169,7 @@ var records = {
     toBeSpeaked: ['<pardon>'],
   },
 
-  11:{
+  12:{
     vals: [
       [['who','made','you'],['whom','made','you'],['who','created','you'],['whom','created','you']],
       
@@ -163,7 +178,7 @@ var records = {
     toBeSpeaked: ['It is my master Mr. Adam Satish who worked 8 hours per day to give me life.']
   },
 
-  12:{
+  13:{
     vals: [
       [['tell','me','joke']],
       'make me laugh',
@@ -184,7 +199,7 @@ var records = {
 
   },
 
-  13:{
+  14:{
     vals: [
       [['who','adam']],
       'Do you know Adam','adam'
@@ -193,7 +208,7 @@ var records = {
     toBeSpeaked: ['Mr. Adam is my God, Mr. Adam is my father, Mr. Adam is my GodFather']
   },
 
-  14:{
+  15:{
     vals: [
       [['show','keep'],['open','keep']],
       
@@ -206,7 +221,7 @@ var records = {
     }
   },
 
-  15:{
+  16:{
     vals: [
       [['show','whatsapp'],['open','whatsapp']],
       
@@ -219,7 +234,7 @@ var records = {
     }
   },
 
-  16:{
+  17:{
     vals: [
       [['show','youtube','studio'],['open','youtube','studio']],
       
@@ -232,7 +247,7 @@ var records = {
     }
   },
 
-  17:{
+  18:{
     vals: [
       [['show','youtube'],['open','youtube']],
       
@@ -245,7 +260,7 @@ var records = {
     }
   },
 
-  18:{
+  19:{
     vals: [
       [['open','type racer'],['open','typing racer'],['open','typeracer']],
       
@@ -258,7 +273,7 @@ var records = {
     }
   },
 
-  19:{
+  20:{
     vals: [
       [['take','typing test'],['open','typing test'],['open','typing master']],
       
@@ -271,7 +286,7 @@ var records = {
     }
   },
 
-  20:{
+  21:{
     vals: [
       [],
       'hello','hi '
@@ -280,7 +295,7 @@ var records = {
     toBeSpeaked: ['Hello Mr. Adam.']
   },
 
-  21: {
+  22: {
     vals: [
       [['play','dynamite'],['sing','dynamite']],
       
@@ -293,7 +308,7 @@ var records = {
     },
   },
 
-  22: {
+  23: {
     vals: [
       [['stop','dynamite'],['pause','dynamite']],
       
@@ -306,7 +321,7 @@ var records = {
     },
   },
 
-  23: {
+  24: {
     vals: [
       [['open','drive'],['show','drive']],
       
@@ -319,7 +334,7 @@ var records = {
     },
   },
   
-  24: {
+  25: {
     vals: [
       [['close','tab'],['close','site']],
       
@@ -334,7 +349,7 @@ var records = {
     },
   },
   
-  25: {
+  26: {
     vals: [
       [['open','github'],['show','github']],
       
@@ -347,7 +362,7 @@ var records = {
     },
   },
   
-  26: {
+  27: {
     vals: [
       [['open','color'],['open','colour']],
       
@@ -360,7 +375,7 @@ var records = {
     },
   },
   
-  27: {
+  28: {
     needTranscript: true,
 
     vals: [
@@ -375,7 +390,7 @@ var records = {
     }
   },
   
-  28: {
+  29: {
     vals: [
       [],
       'good evening'
@@ -384,7 +399,7 @@ var records = {
     toBeSpeaked: ["Good Evening Sir"],
   },
   
-  29: {
+  30: {
     vals: [
       [],
       'good morning'
@@ -393,7 +408,7 @@ var records = {
     toBeSpeaked: ["Good Morning Sir"],
   },
   
-  30: {
+  31: {
     vals: [
       [],
       'good afternoon'
@@ -402,7 +417,7 @@ var records = {
     toBeSpeaked: ["Good Afternoon Sir"],
   },
   
-  31: {
+  32: {
     vals: [
       [],
       'how are you'
@@ -411,7 +426,7 @@ var records = {
     toBeSpeaked: ["I am doing good, By the way, Thanks for asking Sir"],
   },
   
-  32: {
+  33: {
     name:'date',
 
     vals: [
@@ -423,7 +438,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  33: {
+  34: {
     name:'time',
     
     vals: [
@@ -435,7 +450,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  34: {
+  35: {
     vals: [
       [['daily','quote'],['tell','quote'],['daily','thought'],['tell','thought'],['daily','saying'],['tell','saying']],
       
@@ -458,7 +473,6 @@ var records = {
       },300);
     }
   },
-
   
   
 
