@@ -292,7 +292,7 @@ var records = {
       'hello','hi '
     ],
 
-    toBeSpeaked: ['Hello Mr. Adam.']
+    toBeSpeaked: ['Hello Mr. Adam','Hello Sir',]
   },
 
   22: {
