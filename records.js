@@ -30,9 +30,9 @@ var records = {
 
     toBeSpeaked: ["Sure sir",'ok sir','sure Mr. Adam'],
 
-    action: function(transcript){
+    action: function(){
       
-      let searchQuery = transcript.replace(/please search the youtube for/i,'').replace(/search the youtube for/i,'').replace(/please search youtube for/i,'').replace(/search youtube for/i,'').replace(/please search for/i,'').replace(/search for/i,'').replace(/on youtube/i,'').replace(/search/i,'').replace(/for/i,'');
+      let searchQuery = (this.transcript).replace(/please search the youtube for/i,'').replace(/search the youtube for/i,'').replace(/please search youtube for/i,'').replace(/search youtube for/i,'').replace(/please search for/i,'').replace(/search for/i,'').replace(/on youtube/i,'').replace(/search/i,'').replace(/for/i,'');
 
       if(searchQuery.replace(/ /g,"") != ""){
         openSites[openSites.length] = window.open("https://www.youtube.com/results?search_query=" + searchQuery);
