@@ -361,8 +361,34 @@ var records = {
       openSites[openSites.length] = window.open('https://github.com/');
     },
   },
-  
+
   27: {
+    vals: [
+      [['open','gaana'],['open','gaana.com']],
+      
+    ],
+
+    toBeSpeaked: ["Opening Gaana",'sure sir'],
+
+    action: function(){
+      openSites[openSites.length] = window.open('https://gaana.com/');
+    },
+  },
+
+  28: {
+    vals: [
+      [['open','saavn'],['open','saavn.com']],
+      
+    ],
+
+    toBeSpeaked: ["Opening Jio Saavn",'sure sir'],
+
+    action: function(){
+      openSites[openSites.length] = window.open('https://jiosaavn.com/');
+    },
+  },
+  
+  29: {
     vals: [
       [['open','color'],['open','colour']],
       
@@ -375,7 +401,7 @@ var records = {
     },
   },
   
-  28: {
+  30: {
     needTranscript: true,
 
     vals: [
@@ -390,7 +416,7 @@ var records = {
     }
   },
   
-  29: {
+  31: {
     vals: [
       [],
       'good evening'
@@ -399,7 +425,7 @@ var records = {
     toBeSpeaked: ["Good Evening Sir"],
   },
   
-  30: {
+  32: {
     vals: [
       [],
       'good morning'
@@ -408,7 +434,7 @@ var records = {
     toBeSpeaked: ["Good Morning Sir"],
   },
   
-  31: {
+  33: {
     vals: [
       [],
       'good afternoon'
@@ -417,7 +443,7 @@ var records = {
     toBeSpeaked: ["Good Afternoon Sir"],
   },
   
-  32: {
+  34: {
     vals: [
       [],
       'how are you'
@@ -426,7 +452,7 @@ var records = {
     toBeSpeaked: ["I am doing good, By the way, Thanks for asking Sir"],
   },
   
-  33: {
+  35: {
     name:'date',
 
     vals: [
@@ -438,7 +464,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  34: {
+  36: {
     name:'time',
     
     vals: [
@@ -450,7 +476,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  35: {
+  37: {
     vals: [
       [['daily','quote'],['tell','quote'],['daily','thought'],['tell','thought'],['daily','saying'],['tell','saying']],
       
