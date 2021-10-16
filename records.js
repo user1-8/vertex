@@ -1,5 +1,21 @@
 'use strict'
 
+function rmWhiteSpaces(string){
+  let splittedArr = string.split(" ");
+  string='';
+  for(let v=0; v<splittedArr.length; v++){
+    if(splittedArr[v]!=''){
+      if(string==''){
+        string += splittedArr[v];
+      }else{
+        string += (" "+splittedArr[v]);
+      }
+    }
+  }
+  return string;
+}
+
+
 function whereNameIs(nameParam){
   for(let oi in records){
     if(records[oi]['name'] != undefined){
@@ -10,6 +26,19 @@ function whereNameIs(nameParam){
   }
 }
 
+
+function returnSearchQuery(mainstring, toberemovedArr){
+  let changedString = mainstring;
+
+  // below removes strings provided in the array
+  for(let d=0; d<toberemovedArr.length; d++){
+    changedString = changedString.replace((new RegExp(toberemovedArr[d],"i")) , '');
+  }
+
+  return rmWhiteSpaces(changedString); 
+  
+}
+
 var bDaySong = new Audio('https://drive.google.com/uc?id=1IGmG2bb_B-_5hJpUFWDy-pgA0gtFK0tA');
 
 var dynamiteSong = new Audio('https://drive.google.com/uc?id=1pimXm8lSPc41yX9GVC_dgVmA3KYwoKJd');
@@ -18,13 +47,15 @@ var intervalWaterDrink;
 
 var openSites = [];
 
+
+
 var records = {
   
   1:{
     needTranscript: true,
 
     vals: [
-      [['search','on','youtube']],
+      [['search','on','youtube'],['search','youtube','for']],
       
     ],
 
@@ -32,7 +63,9 @@ var records = {
 
     action: function(){
       
-      let searchQuery = (this.transcript).replace(/please search the youtube for/i,'').replace(/search the youtube for/i,'').replace(/please search youtube for/i,'').replace(/search youtube for/i,'').replace(/please search for/i,'').replace(/search for/i,'').replace(/on youtube/i,'').replace(/search/i,'').replace(/for/i,'');
+      let searchQuery = returnSearchQuery(this.transcript, [
+        'please search the youtube for', 'search the youtube for', 'please search youtube for', 'search youtube for', 'please search for', 'search for', 'on youtube', 'search', 'for'
+      ]);
 
       if(searchQuery.replace(/ /g,"") != ""){
         openSites[openSites.length] = window.open("https://www.youtube.com/results?search_query=" + searchQuery);
@@ -44,7 +77,7 @@ var records = {
     needTranscript: true,
 
     vals: [
-      [['search','for'],['search','on google'],['search','on internet']],
+      [['search','on','gaana']],
       
     ],
 
@@ -52,7 +85,54 @@ var records = {
 
     action: function(){
       
-      let searchQuery = (this.transcript).replace(/please search the internet for/i,'').replace(/search the internet for/i,'').replace(/please search google for/i,'').replace(/search google for/i,'').replace(/please search internet for/i,'').replace(/search internet for/i,'').replace(/please search for/i,'').replace(/search for/i,'').replace(/search/i,'').replace(/for/i,'').replace(/on google/i,'').replace(/on internet/i,'');
+      let searchQuery = returnSearchQuery(this.transcript, [
+        'please search the gaana for', 'search the gaana for', 'please search gaana for', 'search gaana for', 'please search for', 'search for', 'on gaana', 'search', 'for'
+      ]);
+      
+
+      if(searchQuery.replace(/ /g,"") != ""){
+        openSites[openSites.length] = window.open("https://gaana.com/search/" + searchQuery);
+      }
+    }
+  },
+
+  3:{
+    needTranscript: true,
+
+    vals: [
+      [['search','on','saavn'],['search','song']],
+      
+    ],
+
+    toBeSpeaked: ["Sure sir",'ok sir','sure Mr. Adam'],
+
+    action: function(){
+      
+      let searchQuery = returnSearchQuery(this.transcript, [
+        'please search the saavn for', 'please search jio saavn for', 'search the saavn for', 'search jio saavn for', 'please search saavn for', 'search saavn for', 'please search for', 'search for', 'on saavn', 'on jio saavn', 'search', 'for', 'song'
+      ]);
+
+      if(searchQuery.replace(/ /g,"") != ""){
+        openSites[openSites.length] = window.open("https://www.jiosaavn.com/search/" + searchQuery);
+      }
+    }
+  },
+
+  4:{
+    needTranscript: true,
+
+    vals: [
+      [['search','for'],['search','on google'],['search','on internet']],
+      
+    ],
+
+    toBeSpeaked: ["Sure sir",'ok sir','sure Mr. Adam'],
+
+    action: function(){
+
+      let searchQuery = returnSearchQuery(this.transcript, [
+        'please search the internet for', 'search the internet for', 'please search google for', 'search google for', 'please search internet for', 'search internet for', 'please search for', 'search for', 'search', 'for', 'on google', 'on internet'
+      ]);
 
       if(searchQuery.replace(/ /g,"") != ""){
         openSites[openSites.length] = window.open("https://www.google.com/search?q=" + searchQuery);
@@ -60,7 +140,7 @@ var records = {
     }
   },
 
-  3: {
+  5: {
     needTranscript: true,
 
     vals: [
@@ -71,11 +151,15 @@ var records = {
     toBeSpeaked: [''],
 
     action: function(){
-      speakNow((this.transcript).replace(/to my/i,"to my master's").replace(/say/i,'').replace(/to/i,''));
+      speakNow(
+        returnSearchQuery(((this.transcript).replace(/to my/i,"to my master's")), [
+          'say', 'to'
+        ])
+      );
     }
   },
 
-  4: {
+  6: {
     vals: [
       [['Who','you'],['who','vertex'],['introduce','yourself'],['tell','about','yourself']],
       'Are you vertex'
@@ -84,7 +168,7 @@ var records = {
     toBeSpeaked: ["I am Vertex, a kind of AI system made by Mr. Adam, and a small real life alternative of Iron man's jarvis. I assist Mr. Adam in his daily work, In other words, you can call me his P.A. or Personal Assistant."]
   },
 
-  5: {
+  7: {
     vals: [
       [['what','can','you','do'],['what','can','you','perform'],['tell','your','abilites']]
       
@@ -93,7 +177,7 @@ var records = {
     toBeSpeaked: ["I can do anything you like, just ask.","I can do many things for you my master"]
   },
 
-  6: {
+  8: {
     vals: [
       [['play','Birthday'],['sing','birthday']],
       
@@ -106,7 +190,7 @@ var records = {
     },
   },
 
-  7: {
+  9: {
     vals: [
       [['stop','Birthday'],['pause','birthday']],
       
@@ -119,7 +203,7 @@ var records = {
     },
   },
   
-  8:{
+  10:{
     vals: [
       [['stop','water','reminder'],['deactivate','water','reminder'],['stop','water','program'],['deactivate','water','program']],
       
@@ -132,7 +216,7 @@ var records = {
     }
   },
 
-  9: {
+  11: {
     vals: [
       [['activate','water','reminder'],['activate','water','program'],['start','water','program'],['start','water','reminder'],['setup','water','reminder'],['setup','water','program'],['set','up','water','reminder'],['set','up','water','program']],
       
@@ -147,7 +231,7 @@ var records = {
     }
   },
 
-  10: {
+  12: {
     vals: [
       [['bye'],['quit'],['exit']],
       'meet you later','meet you soon','see you soon','see you later'
@@ -160,7 +244,7 @@ var records = {
     }
   },
 
-  11:{
+  13:{
     vals: [
       [['say','again'],['speak','again'],['repeat','again']],
       'pardon','please repeat'
@@ -169,7 +253,7 @@ var records = {
     toBeSpeaked: ['<pardon>'],
   },
 
-  12:{
+  14:{
     vals: [
       [['who','made','you'],['whom','made','you'],['who','created','you'],['whom','created','you']],
       
@@ -178,7 +262,7 @@ var records = {
     toBeSpeaked: ['It is my master Mr. Adam Satish who worked 8 hours per day to give me life.']
   },
 
-  13:{
+  15:{
     vals: [
       [['tell','me','joke']],
       'make me laugh',
@@ -199,7 +283,7 @@ var records = {
 
   },
 
-  14:{
+  16:{
     vals: [
       [['who','adam']],
       'Do you know Adam','adam'
@@ -208,7 +292,7 @@ var records = {
     toBeSpeaked: ['Mr. Adam is my God, Mr. Adam is my father, Mr. Adam is my GodFather']
   },
 
-  15:{
+  17:{
     vals: [
       [['show','keep'],['open','keep']],
       
@@ -221,7 +305,7 @@ var records = {
     }
   },
 
-  16:{
+  18:{
     vals: [
       [['show','whatsapp'],['open','whatsapp']],
       
@@ -234,7 +318,7 @@ var records = {
     }
   },
 
-  17:{
+  19:{
     vals: [
       [['show','youtube','studio'],['open','youtube','studio']],
       
@@ -247,7 +331,7 @@ var records = {
     }
   },
 
-  18:{
+  20:{
     vals: [
       [['show','youtube'],['open','youtube']],
       
@@ -260,7 +344,7 @@ var records = {
     }
   },
 
-  19:{
+  21:{
     vals: [
       [['open','type racer'],['open','typing racer'],['open','typeracer']],
       
@@ -273,7 +357,7 @@ var records = {
     }
   },
 
-  20:{
+  22:{
     vals: [
       [['take','typing test'],['open','typing test'],['open','typing master']],
       
@@ -286,7 +370,7 @@ var records = {
     }
   },
 
-  21:{
+  23:{
     vals: [
       [],
       'hello','hi '
@@ -295,7 +379,7 @@ var records = {
     toBeSpeaked: ['Hello Mr. Adam','Hello Sir']
   },
 
-  22: {
+  24: {
     vals: [
       [['play','dynamite'],['sing','dynamite']],
       
@@ -308,7 +392,7 @@ var records = {
     },
   },
 
-  23: {
+  25: {
     vals: [
       [['stop','dynamite'],['pause','dynamite']],
       
@@ -321,7 +405,7 @@ var records = {
     },
   },
 
-  24: {
+  26: {
     vals: [
       [['open','drive'],['show','drive']],
       
@@ -334,7 +418,7 @@ var records = {
     },
   },
   
-  25: {
+  27: {
     vals: [
       [['close','tab'],['close','site']],
       
@@ -349,7 +433,7 @@ var records = {
     },
   },
   
-  26: {
+  28: {
     vals: [
       [['open','github'],['show','github']],
       
@@ -362,7 +446,7 @@ var records = {
     },
   },
 
-  27: {
+  29: {
     vals: [
       [['open','gaana'],['open','gaana.com']],
       
@@ -375,7 +459,7 @@ var records = {
     },
   },
 
-  28: {
+  30: {
     vals: [
       [['open','saavn'],['open','saavn.com']],
       
@@ -388,7 +472,7 @@ var records = {
     },
   },
   
-  29: {
+  31: {
     vals: [
       [['open','color'],['open','colour']],
       
@@ -401,7 +485,7 @@ var records = {
     },
   },
   
-  30: {
+  32: {
     needTranscript: true,
 
     vals: [
@@ -416,7 +500,7 @@ var records = {
     }
   },
   
-  31: {
+  33: {
     vals: [
       [],
       'good evening'
@@ -425,7 +509,7 @@ var records = {
     toBeSpeaked: ["Good Evening Sir"],
   },
   
-  32: {
+  34: {
     vals: [
       [],
       'good morning'
@@ -434,7 +518,7 @@ var records = {
     toBeSpeaked: ["Good Morning Sir"],
   },
   
-  33: {
+  35: {
     vals: [
       [],
       'good afternoon'
@@ -443,7 +527,7 @@ var records = {
     toBeSpeaked: ["Good Afternoon Sir"],
   },
   
-  34: {
+  36: {
     vals: [
       [],
       'how are you'
@@ -452,7 +536,7 @@ var records = {
     toBeSpeaked: ["I am doing good, By the way, Thanks for asking Sir"],
   },
   
-  35: {
+  37: {
     name:'date',
 
     vals: [
@@ -464,7 +548,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  36: {
+  38: {
     name:'time',
     
     vals: [
@@ -476,7 +560,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  37: {
+  39: {
     vals: [
       [['daily','quote'],['tell','quote'],['daily','thought'],['tell','thought'],['daily','saying'],['tell','saying']],
       
