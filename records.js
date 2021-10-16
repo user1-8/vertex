@@ -474,7 +474,7 @@ var records = {
   
   31: {
     vals: [
-      [['open','color'],['open','colour']],
+      [['open','flat ui color'],['open','flat ui colour']],
       
     ],
 
@@ -484,8 +484,21 @@ var records = {
       openSites[openSites.length] = window.open('https://flatuicolors.com/');
     },
   },
-  
+
   32: {
+    vals: [
+      [['OPEN','GMAiL'],['open','google','mail'],['show','gmail'], ['show','email','google']],
+      
+    ],
+
+    toBeSpeaked: ["Opening Gmail ",'sure sir'],
+
+    action: function(){
+      openSites[openSites.length] = window.open('https://www.google.com/gmail/');
+    },
+  },
+  
+  33: {
     needTranscript: true,
 
     vals: [
@@ -500,7 +513,7 @@ var records = {
     }
   },
   
-  33: {
+  34: {
     vals: [
       [],
       'good evening'
@@ -509,7 +522,7 @@ var records = {
     toBeSpeaked: ["Good Evening Sir"],
   },
   
-  34: {
+  35: {
     vals: [
       [],
       'good morning'
@@ -518,7 +531,7 @@ var records = {
     toBeSpeaked: ["Good Morning Sir"],
   },
   
-  35: {
+  36: {
     vals: [
       [],
       'good afternoon'
@@ -527,7 +540,7 @@ var records = {
     toBeSpeaked: ["Good Afternoon Sir"],
   },
   
-  36: {
+  37: {
     vals: [
       [],
       'how are you'
@@ -536,7 +549,7 @@ var records = {
     toBeSpeaked: ["I am doing good, By the way, Thanks for asking Sir"],
   },
   
-  37: {
+  38: {
     name:'date',
 
     vals: [
@@ -548,7 +561,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  38: {
+  39: {
     name:'time',
     
     vals: [
@@ -560,7 +573,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  39: {
+  40: {
     vals: [
       [['daily','quote'],['tell','quote'],['daily','thought'],['tell','thought'],['daily','saying'],['tell','saying']],
       
