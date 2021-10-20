@@ -156,6 +156,7 @@ recognition.onresult = function(e){
             }
             
           }
+
         }else{
           
           if(transcriptText.search(new RegExp(records[h]['vals'][j], 'i')) != -1){
@@ -175,9 +176,20 @@ recognition.onresult = function(e){
             }
             break propertiesInRecords;
           }
+
         }
       }
     }
+
+
+    console.log(sentiment(transcriptText));
+    
+    if(sentiment(transcriptText).score > 0){
+      speakNow('That\'s Amazing');
+    }else if(sentiment(transcriptText).score < 0){
+      speakNow('Sorry to hear that');
+    }
+
   },500);
 
 }

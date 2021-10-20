@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Vertex redirect </title>
+	<title> Vertex • AI </title>
 	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 	<meta charset="UTF-8">
   <meta name="description" content="A kind of Personal Assistant">
   <meta name="keywords" content="Vertex">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="style.css">
 	
-	<style>
-	*{font-family:sans-serif;}
-	</style>
+</head>
+
 <body>
-	<h2> Please allow popups and redirects from this page and then refresh the page... </h2>
-	<br>
-	<h3>If allowed, ignore this message.</h3>
+	
+	<div class="wrapper">
+		<div class="pointer">
+			<div class="circle"></div>
+			<img src="includes/vertex.png"></img>
+		</div>
+		<br><br>
+		<div class="listened">VERTEX</div>
+		<div class="confidence">___</div>
+	</div>
+	
+	
+	
 
+	
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="includes/afinn-master/afinn_da.js"></script>
+	<script src="includes/afinn-master/afinn_emoticon.js"></script>
+	<script src="includes/afinn-master/afinn_en.js"></script>
 	<script>
-
-		window.open('main.html');
-
-
+		var afinn = $.extend(afinn_en, afinn_emoticon);
 	</script>
+	<script src="includes/afinn-master/sentiment.js"></script>
+
+	<script src="includes/quotes.js"></script>
+	<script src="includes/jokes.js"></script>
+	<script src="records.js"></script>
+	<script src="app.js"></script>
+	
 </body>
 </html>
