@@ -182,13 +182,13 @@ recognition.onresult = function(e){
     }
 
 
-    console.log(sentiment(transcriptText));
+    // console.log(sentiment(transcriptText));
     
-    if(sentiment(transcriptText).score > 0){
-      speakNow('That\'s Amazing');
-    }else if(sentiment(transcriptText).score < 0){
-      speakNow('Sorry to hear that');
-    }
+    // if(sentiment(transcriptText).score > 0){
+    //   speakNow('That\'s Amazing');
+    // }else if(sentiment(transcriptText).score < 0){
+    //   speakNow('Sorry to hear that');
+    // }
 
   },500);
 
