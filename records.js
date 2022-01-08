@@ -497,8 +497,21 @@ var records = {
       openSites[openSites.length] = window.open('https://www.google.com/gmail/');
     },
   },
-  
+
   33: {
+    vals: [
+      [['OPEN','google', 'photos'],['show','google','photos']],
+      
+    ],
+
+    toBeSpeaked: ["Opening Photos ",'sure sir'],
+
+    action: function(){
+      openSites[openSites.length] = window.open('https://photos.google.com/');
+    },
+  },
+  
+  34: {
     needTranscript: true,
 
     vals: [
@@ -513,7 +526,7 @@ var records = {
     }
   },
   
-  34: {
+  35: {
     vals: [
       [],
       'good evening'
@@ -522,7 +535,7 @@ var records = {
     toBeSpeaked: ["Good Evening Sir"],
   },
   
-  35: {
+  36: {
     vals: [
       [],
       'good morning'
@@ -531,7 +544,7 @@ var records = {
     toBeSpeaked: ["Good Morning Sir"],
   },
   
-  36: {
+  37: {
     vals: [
       [],
       'good afternoon'
@@ -540,7 +553,7 @@ var records = {
     toBeSpeaked: ["Good Afternoon Sir"],
   },
   
-  37: {
+  38: {
     vals: [
       [],
       'how are you'
@@ -549,7 +562,7 @@ var records = {
     toBeSpeaked: ["I am doing good, By the way, Thanks for asking Sir"],
   },
   
-  38: {
+  39: {
     name:'date',
 
     vals: [
@@ -561,7 +574,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  39: {
+  40: {
     name:'time',
     
     vals: [
@@ -573,7 +586,7 @@ var records = {
     toBeSpeaked: [''],
   },
   
-  40: {
+  41: {
     vals: [
       [['daily','quote'],['tell','quote'],['daily','thought'],['tell','thought'],['daily','saying'],['tell','saying']],
       
