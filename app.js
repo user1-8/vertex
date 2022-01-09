@@ -36,7 +36,7 @@ function speakNow(MyText){
 
 // below is to listen to user by clicking space-bar
 document.body.onkeyup = function(e){
-  if(e.keyCode == 32){
+  if(e.keyCode == 32 || e.keyCode == 179){
     img.click();
   }
 }
